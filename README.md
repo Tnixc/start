@@ -2,7 +2,7 @@
 
 ## An easily customizable web page made with html,css and vanilla js.
 
-![image](https://user-images.githubusercontent.com/85466117/219828275-8a21a28b-d773-4801-9206-54835a15ee8f.png)
+![image](https://user-images.githubusercontent.com/85466117/219828706-37c856be-ac95-42aa-b205-7399870f6aea.png)
 
 # Thanks
 
