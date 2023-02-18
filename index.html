@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>~</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="items-container">
+      <h1 id="day-of-week">Friday</h1>
+      <h2 id="date">07/27/2023</h2>
+      <div id="weather" class="weather loading">
+        <!-- <h2 class="city">Weather in Hong Kong</h2> -->
+        <div id="temp-and-symbol">
+          <h1 class="temp">21°C</h1>
+          <img src="https://openweathermap.org/img/wn/02n.png" class="icon" />
+        </div>
+        <div class="description">Cloudy</div>
+      </div>
+      <h1 id="time" class="time">00:00</h1>
+    </div>
+    <div id="cards">
+      <ul class="card">
+        <img src="./img/youtube.png" alt="" />
+        <a href="https://www.youtube.com/">Youtube</a>
+      </ul>
+      <ul class="card">
+        <img src="./img/classroom.png" alt="" />
+        <a href="https://classroom.google.com/u/1/h">Classroom</a>
+      </ul>
+      <ul class="card">
+        <img src="./img/scgmail.png" alt="" />
+        <a href="https://mail.google.com/mail/u/1/#inbox">School Mail</a>
+      </ul>
+      <ul class="card">
+        <img src="./img/gmail.png" alt="" />
+        <a href="https://mail.google.com/mail/u/0/#inbox">Personal Mail</a>
+      </ul>
+      <ul class="card">
+        <img src="./img/notion.png" alt="" />
+        <a href="https://www.notion.so/tnixc/0e6c4eda12134b8facbbe3bb7d2e135a">
+          Notion
+        </a>
+      </ul>
+      <ul class="card">
+        <img src="./img/catppuccin.png" alt="" />
+        <a href="https://github.com/catppuccin/catppuccin">Catppuccin</a>
+      </ul>
+    </div>
+    <script src="./weather.js"></script>
+    <script>
+      function formatAMPM() {
+        const date = new Date()
+        var hours = date.getHours()
+        var minutes = date.getMinutes()
+        var ampm = hours >= 12 ? 'pm' : 'am'
+        hours = hours % 12
+        hours = hours ? hours : 12 // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0' + minutes : minutes
+        var strTime = hours + ':' + minutes + ' ' + ampm
+        document.getElementsByClassName('time')[0].innerHTML = strTime
+        console.log(strTime)
+        return strTime
+      }
+      formatAMPM()
+      setInterval(formatAMPM, 30000)
+    </script>
+    <script>
+      document.getElementById('cards').onmousemove = (e) => {
+        for (const card of document.getElementsByClassName('card')) {
+          const rect = card.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top
+
+          card.style.setProperty('--mouse-x', `${x}px`)
+          card.style.setProperty('--mouse-y', `${y}px`)
+        }
+      }
+    </script>
+    <script>
+      function date() {
+        const today = new Date()
+        const days = [
+          'Sunday',
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+        ]
+        let dailyday = days[today.getDay()]
+        let date = today.getDate()
+        let month = today.getMonth()
+        let year = today.getFullYear()
+        month = month + 1
+        document.getElementById('date').innerHTML =
+          date + '/' + month + '/' + year
+        document.getElementById('day-of-week').innerHTML = dailyday
+      }
+      date()
+    </script>
+  </body>
+</html>
