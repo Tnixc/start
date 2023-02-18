@@ -128,15 +128,18 @@ table {
   border-spacing: 0;
 }
 /**/
+html{
+  background: url(./img/bg.gif);
+}
 
-body {
+body{
   height: 100vh;
-  background: url(./img/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  color: #d6d8db;
+  color: #D6D8DB;
   font-family: Product Sans;
+  backdrop-filter: blur(10px) brightness(0.5);
 }
 #items-container {
   width: min-content;
